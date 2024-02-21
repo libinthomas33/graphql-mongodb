@@ -10,6 +10,10 @@ export class LessonService {
     private lessonRepository: Repository<Lesson>,
   ) {}
 
+  getLesson(id): Promise<Lesson> {
+    return this.lessonRepository.findOne({ where: { id } });
+  }
+
   createLesson(name, startDate, endDate): Promise<Lesson> {
     const lesson = this.lessonRepository.create({
       id: uuid(),
