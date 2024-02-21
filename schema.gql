@@ -9,17 +9,31 @@ type Lesson {
   endDate: String!
 }
 
+type Student {
+  id: ID!
+  firstName: String!
+  lastName: String!
+}
+
 type Query {
   lesson(id: String!): Lesson!
   getLessons: [Lesson!]!
+  student(id: String!): Student!
+  getStudents: [Student!]!
 }
 
 type Mutation {
   createLesson(createLessonInput: CreateLessonInput!): Lesson!
+  createStudent(createStudentInput: CreateStudentInput!): Student!
 }
 
 input CreateLessonInput {
   name: String!
   startDate: String!
   endDate: String!
+}
+
+input CreateStudentInput {
+  firstName: String!
+  lastName: String!
 }
